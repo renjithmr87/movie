@@ -372,10 +372,10 @@ coverage report
 
 ## 📚 Technology Stack
 
-- **Backend**: Django 4.2.9
+- **Backend**: Django 4.2.26
 - **Database**: PostgreSQL 15
 - **API**: Django REST Framework 3.14.0
-- **WSGI Server**: Gunicorn 21.2.0
+- **WSGI Server**: Gunicorn 22.0.0
 - **Containerization**: Docker
 - **Orchestration**: Kubernetes (KIND)
 - **CI/CD**: GitHub Actions
