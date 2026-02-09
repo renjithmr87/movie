@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: movie-config
+  namespace: movie-app
+data:
+  ALLOWED_HOSTS: "*"
+  DEBUG: "False"
+  DB_NAME: "moviedb"
+  DB_USER: "movieuser"
+  DB_HOST: "postgres-service"
+  DB_PORT: "5432"

@@ -1,0 +1,44 @@
+{% extends 'movies/base.html' %}
+
+{% block title %}Movie List{% endblock %}
+
+{% block content %}
+<h1>Movie Database</h1>
+
+{% if movies %}
+    <div style="margin-bottom: 20px;">
+        <p>Total Movies: {{ movies.count }}</p>
+    </div>
+    
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #007bff; color: white;">
+                <th style="padding: 10px; text-align: left;">Title</th>
+                <th style="padding: 10px; text-align: left;">Director</th>
+                <th style="padding: 10px; text-align: left;">Genre</th>
+                <th style="padding: 10px; text-align: center;">Year</th>
+                <th style="padding: 10px; text-align: center;">Rating</th>
+                <th style="padding: 10px; text-align: center;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+            <tr style="border-bottom: 1px solid #ddd;">
+                <td style="padding: 10px;">{{ movie.title }}</td>
+                <td style="padding: 10px;">{{ movie.director }}</td>
+                <td style="padding: 10px;">{{ movie.genre }}</td>
+                <td style="padding: 10px; text-align: center;">{{ movie.year }}</td>
+                <td style="padding: 10px; text-align: center;">{{ movie.rating }}</td>
+                <td style="padding: 10px; text-align: center;">
+                    <a href="{% url 'movie_detail' movie.pk %}" class="btn" style="padding: 5px 10px; margin: 2px;">View</a>
+                    <a href="{% url 'movie_update' movie.pk %}" class="btn btn-secondary" style="padding: 5px 10px; margin: 2px;">Edit</a>
+                    <a href="{% url 'movie_delete' movie.pk %}" class="btn btn-danger" style="padding: 5px 10px; margin: 2px;">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No movies in the database yet. <a href="{% url 'movie_create' %}">Add the first one!</a></p>
+{% endif %}
+{% endblock %}
