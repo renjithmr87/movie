@@ -83,3 +83,4 @@ echo ""
 echo "To stop and remove volumes:"
 echo -e "${YELLOW}docker-compose down -v${NC}"
 echo ""
+exit 0

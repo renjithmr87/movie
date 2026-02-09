@@ -43,7 +43,7 @@ def movie_create(request):
             genre=request.POST.get('genre'),
             year=request.POST.get('year'),
             description=request.POST.get('description', ''),
-            rating=request.POST.get('rating', 0.0),
+            rating=float(request.POST.get('rating') or 0.0),
             duration=request.POST.get('duration')
         )
         movie.save()
@@ -62,7 +62,7 @@ def movie_update(request, pk):
         movie.genre = request.POST.get('genre')
         movie.year = request.POST.get('year')
         movie.description = request.POST.get('description', '')
-        movie.rating = request.POST.get('rating', 0.0)
+        movie.rating = float(request.POST.get('rating') or 0.0)
         movie.duration = request.POST.get('duration')
         movie.save()
         return redirect('movie_detail', pk=pk)

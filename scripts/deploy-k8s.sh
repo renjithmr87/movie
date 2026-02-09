@@ -117,3 +117,4 @@ echo "To check logs:"
 echo -e "${YELLOW}kubectl logs -f -n movie-app -l app=movie-app${NC}"
 echo ""
 echo -e "${GREEN}Deployment completed successfully!${NC}"
+exit 0
